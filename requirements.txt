@@ -1,0 +1,2 @@
+Beaker==1.10.0
+-e git+https://github.com/daxslab/ron.git#egg=ron
