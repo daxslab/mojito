@@ -1,11 +1,9 @@
 from time import sleep
 
+from main.models.person import Person
 from ron.web import Controller
-# from ron.web.actions import action, route
 
 from ron import request, Application
-
-# from runserver import app
 
 # Application is a singleton
 app = Application()
@@ -75,3 +73,11 @@ class Site(Controller):
     def api_post(self):
         return dict(status='post', data=request.json)
 
+    # Peewee ORM
+    @Controller.route('/persons', method='GET')
+    def persons(self):
+        charlie = Person.create(name='charlie')
+        huey = Person(name='huey')
+        huey.save()
+        result = Person.select().dicts()
+        return dict(status='ok', data=list(result))

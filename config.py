@@ -2,6 +2,7 @@
 
 from main.module import Main
 from ron.caching.cache import CacheComponent
+from ron.models import PeeweeDB
 from ron.web.session import SessionComponent
 from user.module import User
 
@@ -27,6 +28,13 @@ config = {
                 'auto': True,
             }
         },
+        'db': {
+            'class': PeeweeDB,
+            'on_initialize': True,
+            'options': {
+                'connection': 'sqlite:///:memory:'
+            }
+        }
     },
 
     # 'middlewares': [
