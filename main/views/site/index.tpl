@@ -1,6 +1,7 @@
 {{
 from yatl.helpers import *
 from ron.widgets import Breadcrumbs
+from ron.helpers import URL
 }}
 
 {{extend '../layout.tpl'}}
@@ -11,9 +12,9 @@ from ron.widgets import Breadcrumbs
 
 {{=Breadcrumbs({
     'items':[
-        {'label': 'Home', 'url':'/'},
-        {'label': 'Services', 'url':'/services'},
-        {'label': 'Contact', 'url':'/contact'},
+        {'label': 'Home', 'url':URL()},
+        {'label': 'Services', 'url':URL('services')},
+        {'label': 'Contact', 'url':URL('contact')},
     ],
     'item_options':{
         '_class': 'breadcrumb-item'

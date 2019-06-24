@@ -17,7 +17,6 @@ class Site(Controller):
     @Controller.route('/index') # we can use more than one route
     @Controller.view('main/views/site/index.tpl')
     def index(self):
-        print(self.module.get_url('/index', pepe=123))
         return dict(name='index')
 
     # this is an example using the action route decorator, this will
