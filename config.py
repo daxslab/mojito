@@ -32,7 +32,7 @@ config = {
             'class': PeeweeDB,
             'on_initialize': True,
             'options': {
-                'connection': 'sqlite:///:memory:'
+                'connection': 'sqlite:///test.db'
             }
         }
     },

@@ -3,7 +3,7 @@ from time import sleep
 from main.models.person import Person
 from ron.web import Controller
 
-from ron import request, Application
+from ron import Application
 
 # Application is a singleton
 app = Application()
@@ -17,6 +17,7 @@ class Site(Controller):
     @Controller.route('/index') # we can use more than one route
     @Controller.view('main/views/site/index.tpl')
     def index(self):
+        print(self.module.get_url('/index', pepe=123))
         return dict(name='index')
 
     # this is an example using the action route decorator, this will
@@ -54,7 +55,6 @@ class Site(Controller):
 
         return dict(name='views_caching', text=text, cached_data=data)
 
-
     # session example using the defined session_manager component
     @Controller.route('/session')
     def session(self):
@@ -63,20 +63,9 @@ class Site(Controller):
         session.save()
         return dict(status='ok', data={'count':session['test']})
 
-    # json endpoint example
-    @Controller.route('/api', method='GET')
-    def api(self):
-        return dict(status='ok', data={'test':1, 'name':'api'})
-
-    # POST example
-    @Controller.route('/api', method='POST')
-    def api_post(self):
-        return dict(status='post', data=request.json)
-
     # Peewee ORM
     @Controller.route('/persons', method='GET')
     def persons(self):
-        charlie = Person.create(name='charlie')
         huey = Person(name='huey')
         huey.save()
         result = Person.select().dicts()
