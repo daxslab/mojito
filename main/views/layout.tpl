@@ -1,8 +1,11 @@
+{{
+from ron.helpers import URL
+}}
 <!doctype html>
 <html lang="en">
 <head>
     <title>Bottle-MVC</title>
-    <!--link rel="stylesheet" type="text/css" href="/static/css/lolo.css" -->
+    <link rel="stylesheet" type="text/css" href="{{=URL('static', 'a.css')}}">
 </head>
 <body>
 <main>
