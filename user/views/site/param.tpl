@@ -5,7 +5,7 @@ from ron.widgets import Breadcrumbs
 
 }}
 
-{{extend '../layout.tpl'}}
+{{extend layout}}
 
 USER {{=H1('Hello ' + name)}}
 

@@ -2,7 +2,7 @@
 from yatl.helpers import *
 }}
 
-{{extend '../layout.tpl'}}
+{{extend layout}}
 
 {{=H1(name)}}
 

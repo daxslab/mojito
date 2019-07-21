@@ -4,7 +4,7 @@ from ron.widgets import Breadcrumbs
 from ron.helpers import URL
 }}
 
-{{extend '../layout.tpl'}}
+{{extend layout}}
 
 {{=H2(name)}}
 

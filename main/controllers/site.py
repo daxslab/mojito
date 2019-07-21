@@ -15,7 +15,8 @@ class Site(Controller):
     # a view using the view decorator
     @Controller.route('/')
     @Controller.route('/index') # we can use more than one route
-    @Controller.view('main/views/site/index.tpl')
+    # @Controller.view('main/views/site/index.tpl')
+    @app.view('main/views/site/index.tpl')
     def index(self):
         return dict(name='index')
 

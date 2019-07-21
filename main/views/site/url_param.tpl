@@ -3,7 +3,7 @@ from yatl.helpers import *
 from ron.widgets import Breadcrumbs
 }}
 
-{{extend '../layout.tpl'}}
+{{extend layout}}
 
 {{=H2(name)}}
 

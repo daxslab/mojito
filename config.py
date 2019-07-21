@@ -1,6 +1,7 @@
 # from bottle import Jinja2Template
 
 from main.module import Main
+# from ron.base.view import View
 from ron.caching.cache import CacheComponent
 from ron.models import PeeweeDB
 from ron.web.session import SessionComponent
@@ -34,7 +35,13 @@ config = {
             'options': {
                 'connection': 'sqlite:///test.db'
             }
-        }
+        },
+        # 'view': {
+        #     'class': View,
+        #     'options': {
+        #         'layout': 'views/layout.tpl',
+        #     }
+        # }
     },
 
     # 'middlewares': [
@@ -53,16 +60,23 @@ config = {
         'main': {
             'class': Main,
             'options': {
-                'mount_type': 'merge',
-                # 'template_adapter': Jinja2Template,
+                'mount_type': 'merge'
             },
         },
         'user': {
             'class': User,
             'options': {
-                # 'views_path': os.path.dirname(os.path.abspath(__file__)) + '/main/views',
-                # 'template_adapter': Jinja2Template,
-            }
+                # 'components': {
+                #     'view': {
+                #         'class': View,
+                #         'options': {
+                #             # 'template_adapter': Jinja2Template,
+                #             'path': 'views'
+                #         }
+                #     }
+                # }
+            },
+
         }
     },
 }
