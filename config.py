@@ -5,6 +5,7 @@ from main.module import Main
 from ron.caching.cache import CacheComponent
 from ron.models import PeeweeDB
 from ron.web.session import SessionComponent
+from ron.web.urlmanager import UrlManagerComponent
 from user.module import User
 
 config = {
@@ -36,6 +37,20 @@ config = {
                 'connection': 'sqlite:///test.db'
             }
         },
+        'url_manager': {
+            'class': UrlManagerComponent,
+            'options': {
+                'routes': [
+                    ('/config_route', 'GET', 'main.controllers.site.config_route'),
+                    ('/redefined_route', 'GET', 'main.controllers.site.config_redefined_route'),
+                ],
+                'remove_rules': [
+                    ('/redefined', '*'),
+                    # ('/redefined', 'GET'),
+                    # ('/redefined', ['GET', 'POST']),
+                ]
+            }
+        }
         # 'view': {
         #     'class': View,
         #     'options': {

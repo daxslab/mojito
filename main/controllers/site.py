@@ -70,3 +70,12 @@ class Site(Controller):
         huey.save()
         result = Person.select().dicts()
         return dict(status='ok', data=list(result))
+
+    # route defined from config
+    def config_route(self):
+        return "ok"
+
+    # route redefined from config, the /redefined path is replaced by /redefined_route
+    @Controller.route('/redefined', method='GET')
+    def config_redefined_route(self):
+        return "ok"
