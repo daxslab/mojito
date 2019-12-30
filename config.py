@@ -40,7 +40,7 @@ config = {
         'url_manager': {
             'class': UrlManagerComponent,
             'options': {
-                'routes': [
+                'rules': [
                     ('/config_route', 'GET', 'main.controllers.site.config_route'),
                     ('/redefined_route', 'GET', 'main.controllers.site.config_redefined_route'),
                 ],
