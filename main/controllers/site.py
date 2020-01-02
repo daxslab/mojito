@@ -15,7 +15,7 @@ class Site(Controller):
     # a view using the view decorator
     @Controller.route('/')
     @Controller.route('/index') # we can use more than one route
-    @Controller.view('main/views/site/index.tpl')
+    @Controller.view('site/index.tpl') # relative path from module views folder (an absolute path to template can also be used)
     def index(self):
         return dict(name='index')
 
