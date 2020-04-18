@@ -69,3 +69,14 @@ class Site(Controller):
         huey.save()
         result = Person.select().dicts()
         return dict(status='ok', data=list(result))
+
+    # This example can explore the gevent async capabilities. In a not gevent based application
+    # the sleep() function will block the application thread, instead, a gevent based application
+    # will handle thousands of concurrent requests
+    @Controller.route('/stream')
+    def stream(self):
+        yield 'START'
+        sleep(3)
+        yield 'MIDDLE'
+        sleep(5)
+        yield 'END'

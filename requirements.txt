@@ -1,4 +1,5 @@
 Beaker==1.10.0
 bottle-peewee
 peewee-validates
+gevent
 -e git+https://github.com/daxslab/ron.git#egg=ron
