@@ -37,6 +37,7 @@ class API(Controller):
             pp.save()
             data = model_to_dict(pp)
         else:
+            response.status = 422
             data = pp.validator().errors
         return dict(name='Person', data=data)
 
@@ -58,14 +59,19 @@ class API(Controller):
         """
         Update a Person
         """
-        person = Person.get(Person.id == id)
-        put_data = request.json
-        if person.validate(put_data):
-            person.update_model(put_data)
-            person.save()
-            data = model_to_dict(person)
-        else:
-            data = person.validator().errors
+        try:
+            person = Person.get(Person.id == id)
+            put_data = request.json
+            if person.validate(put_data):
+                person.update_model(put_data)
+                person.save()
+                data = model_to_dict(person)
+            else:
+                response.status = 422
+                data = person.validator().errors
+        except DoesNotExist:
+            response.status = 404
+            data = "Not found"
         return dict(name='Person', data=data)
 
     @Controller.route('/person/<id:int>', method='DELETE')
