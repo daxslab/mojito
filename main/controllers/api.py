@@ -31,7 +31,7 @@ class API(Controller):
         """
         Insert a new Person
         """
-        data = dict(request.forms)
+        data = request.json
         pp = Person(**data)
         if pp.validate():
             pp.save()
@@ -59,9 +59,9 @@ class API(Controller):
         Update a Person
         """
         person = Person.get(Person.id == id)
-        form_data = dict(request.forms)
-        if person.validate(form_data):
-            person.update_model(form_data)
+        put_data = request.json
+        if person.validate(put_data):
+            person.update_model(put_data)
             person.save()
             data = model_to_dict(person)
         else:
