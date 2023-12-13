@@ -1,7 +1,8 @@
 # Mojito
 
 ## Description
-This is a small demo web app prepared using Ron, an experimental Python web framework. It serves as an example of how Ron can be used to build web applications.
+This is a small demo web app prepared using [Ron](https://github.com/daxslab/ron), 
+an experimental Python web framework. It serves as an example of how Ron can be used to build web applications.
 
 ## Installation
 1. Clone the repository: `git clone https://github.com/daxslab/mojito.git`
