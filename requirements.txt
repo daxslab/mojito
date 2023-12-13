@@ -1,5 +1,5 @@
-Beaker==1.10.0
-bottle-peewee
-peewee-validates
+Beaker~=1.0
+bottle-peewee~=0.1
+-e git+https://github.com/daxslab/peewee-validates.git#egg=peewee-validates
 gevent
 -e git+https://github.com/daxslab/ron.git#egg=ron
