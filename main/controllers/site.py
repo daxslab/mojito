@@ -10,7 +10,6 @@ app = Application()
 
 class Site(Controller):
 
-    # @a.cache_manager.cache(expire=3600)
     # this is an example using the basic route decorator and defining
     # a view using the view decorator
     @Controller.route('/')
